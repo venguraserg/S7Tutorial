@@ -61,7 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccesLayer\PoolPLCSevice.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -82,8 +81,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{4f98f689-14e8-468c-b1a2-0b43cfca5310}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{0c2e9657-0974-4861-818c-93e24cd5a5a4}</Project>
+      <Project>{0C2E9657-0974-4861-818C-93E24CD5A5A4}</Project>
       <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>

@@ -3,7 +3,7 @@
 
 using S7.Net;
 
-namespace S7Tutorial
+namespace Model
 {
     public class PlcMemoryCelsReal
     {
