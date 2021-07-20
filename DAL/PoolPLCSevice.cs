@@ -12,10 +12,10 @@ namespace DAL
 {
     static public class PoolPLCSevice
     {
-        static public List<PlcMemoryCelsReal> GetPoolData()
+        static private List<PlcMemoryCelsReal> GetPoolData()
         {
 
-            var fileText = File.ReadAllLines("test.txt");
+            var fileText = File.ReadAllLines("PLCMemorycels.txt");
             char[] charSeparators = new char[] { ' ' };
             List<PlcMemoryCelsReal> poolData = new List<PlcMemoryCelsReal>();
             for (var i = 0; i < fileText.Length; i++)
@@ -30,7 +30,7 @@ namespace DAL
 
             return poolData;
         }
-        public static double ReadPlcData(PlcMemoryCelsReal data)
+        private static double ReadPlcData(PlcMemoryCelsReal data)
         {
             using (var plc = new Plc(data.Cpu, data.Ip, 0, 0))
             {
@@ -41,6 +41,18 @@ namespace DAL
                 return (double)result;
 
             }
+        }
+        public static string GetAllData() 
+        {
+            var poolData = GetPoolData();
+            string data = string.Empty;
+            for (var i = 0; i < poolData.Count; i++)
+            {
+                data += $" * {poolData[i].TextTag} -> {ReadPlcData(poolData[i]):f2}\n";
+            }
+
+
+            return data;
         }
     }
 }

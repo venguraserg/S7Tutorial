@@ -1,13 +1,6 @@
 ﻿using DAL;
-using Model;
-using S7.Net;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 
 
@@ -17,20 +10,12 @@ namespace S7Tutorial
     {
         static void Main(string[] args)
         {
-            var poolData = PoolPLCSevice.GetPoolData();
-                      
-
-            Console.WriteLine("Читаем данные из:");
-
-            foreach (var item in poolData)
-            {
-                Console.WriteLine(item.ToString());
-            }
+            
             int period = 60 * 1000;
             // устанавливаем метод обратного вызова
-            TimerCallback tm = new TimerCallback(Count);
+            TimerCallback tm = new TimerCallback(BatchMethod);
             // создаем таймер
-            Timer timer = new Timer(tm, poolData, 0, period);
+            Timer timer = new Timer(tm, "", 0, period);
             
             bool startSend = false;
             while (true)
@@ -49,29 +34,15 @@ namespace S7Tutorial
                     default:
                         Console.WriteLine("No correct input");
                         break;
-                }
-                    
-
-
-            }
-
-
-           
+                }    
+            }           
         }
 
         
 
-        public static void Count(object obj)
+        public static void BatchMethod(object obj)
         {
-            List<PlcMemoryCelsReal> poolData = (List<PlcMemoryCelsReal>)obj;
-            Console.Clear();
-            Console.WriteLine(DateTime.Now.ToShortDateString()+"  "+ DateTime.Now.ToShortTimeString());
-            for (var i = 0; i < poolData.Count; i++)
-            {
-                Console.WriteLine($"/*Plc {poolData[i].Ip} DB{poolData[i].Db}.{poolData[i].Adr} */{poolData[i].TextTag} Value -> {PoolPLCSevice.ReadPlcData(poolData[i]):f2}");
-            }
-            Console.WriteLine("***********************************************************************");
-
+            Console.WriteLine(PoolPLCSevice.GetAllData()); 
         }
 
 
