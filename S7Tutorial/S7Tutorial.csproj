@@ -85,9 +85,9 @@
       <Project>{4f98f689-14e8-468c-b1a2-0b43cfca5310}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{0C2E9657-0974-4861-818C-93E24CD5A5A4}</Project>
-      <Name>Model</Name>
+    <ProjectReference Include="..\TelegramBot\TelegramBot.csproj">
+      <Project>{0ce8fa00-8351-4722-9772-37df6a4f3324}</Project>
+      <Name>TelegramBot</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

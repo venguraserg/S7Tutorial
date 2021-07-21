@@ -1,8 +1,7 @@
 ﻿using DAL;
 using System;
 using System.Threading;
-
-
+using TelegramBot;
 
 namespace S7Tutorial
 {
@@ -11,7 +10,7 @@ namespace S7Tutorial
         static void Main(string[] args)
         {
             
-            int period = 60 * 1000;
+            int period = 900 * 1000;
             // устанавливаем метод обратного вызова
             TimerCallback tm = new TimerCallback(BatchMethod);
             // создаем таймер
@@ -42,7 +41,9 @@ namespace S7Tutorial
 
         public static void BatchMethod(object obj)
         {
-            Console.WriteLine(PoolPLCSevice.GetAllData()); 
+            string text = PoolPLCSevice.GetAllData();
+            Console.WriteLine(text);
+            TGB.TelegramBot(text);
         }
 
 
