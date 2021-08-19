@@ -48,7 +48,7 @@ namespace DAL
             string data = string.Empty;
             for (var i = 0; i < poolData.Count; i++)
             {
-                data += $" * {poolData[i].TextTag} -> {ReadPlcData(poolData[i]):f2}\n";
+                data += $" * {poolData[i].TextTag,-14} -> {ReadPlcData(poolData[i]):f2}\n";
             }
 
 

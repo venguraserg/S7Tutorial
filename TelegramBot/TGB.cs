@@ -13,7 +13,7 @@ namespace TelegramBot
     {
         static public void TelegramBot(string text)
         {
-            string SendMessage = "https://api.telegram.org/bot1638062702:AAFw09mf-K_PnvgXXreGzqYHSfCfTprjEyU/sendmessage?chat_id=-516859116&text=" + DateTime.Now+"\n"+text;
+            string SendMessage = "https://api.telegram.org/bot1638062702:AAFw09mf-K_PnvgXXreGzqYHSfCfTprjEyU/sendmessage?chat_id=-516859116&text=" + DateTime.Now.ToString()+"\n"+text;
             using (var webClient = new WebClient())
             {
                 string JSONwithAdd = webClient.DownloadString(SendMessage);

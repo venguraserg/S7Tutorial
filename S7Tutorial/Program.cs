@@ -19,21 +19,23 @@ namespace S7Tutorial
             bool startSend = false;
             while (true)
             {
-               // Console.WriteLine($"Передача в бот ->{startSend}");
-             //  var text = Console.ReadLine();
-              //  switch (text)
-          //  {
-             //       case "start":
-            //            startSend = true;
-                       
-            //            break;
-            //        case "stop":
-              //          startSend = false;
-              //          break;
-             //       default:
-              //          Console.WriteLine("No correct input");
-              //          break;
-              //  }    
+                // Console.WriteLine($"Передача в бот ->{startSend}");
+                //  var text = Console.ReadLine();
+                //  switch (text)
+                //  {
+                //       case "start":
+                //            startSend = true;
+
+                //            break;
+                //        case "stop":
+                //          startSend = false;
+                //          break;
+                //       default:
+                //          Console.WriteLine("No correct input");
+                //          break;
+                //  }
+                Console.ReadKey();
+                Console.WriteLine("-------------");
             }           
         }
 
